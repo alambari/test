@@ -1,13 +1,13 @@
 # Golang Coding Test
 
-Lima soal fungsi Golang. Kode ada di [`treasury/main.go`](treasury/main.go), test di [`treasury/main_test.go`](treasury/main_test.go).
+Lima soal fungsi Golang. Kode ada di [`main.go`](main.go), test di [`main_test.go`](main_test.go).
 
 ## Cara menjalankan
 
 Butuh Go 1.22+.
 
 ```bash
-cd treasury
+cd treasury   # dari root repo
 go run .            # menampilkan hasil semua contoh soal
 go test -race ./... # menjalankan unit test (termasuk race detector untuk soal 5)
 ```
