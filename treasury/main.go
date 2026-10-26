@@ -153,13 +153,37 @@ func GO5(nums ...int) int {
 	return sum
 }
 
+// section mencetak judul tiap soal.
+func section(title string) {
+	fmt.Printf("\n━━ %s %s\n", title, strings.Repeat("━", 44-len([]rune(title))))
+}
+
+// row mencetak satu pemanggilan fungsi beserta hasilnya dalam kolom rapi.
+func row(call string, result any) {
+	fmt.Printf("  %-36s → %v\n", call, result)
+}
+
 func main() {
-	fmt.Println("1:", GO1([]int{-1, 1}), GO1([]int{-1, -7, -5}), GO1([]int{1, 2, 1, 6}))
+	section("Soal 1 · angka yang hilang")
+	row("GO1([-1 1])", GO1([]int{-1, 1}))
+	row("GO1([-1 -7 -5])", GO1([]int{-1, -7, -5}))
+	row("GO1([1 2 1 6])", GO1([]int{1, 2, 1, 6}))
 
-	fmt.Println(GO2([]int{0, 1, 0}, 1000, 1010))
-	fmt.Println(GO2([]int{0, 1, 0}, 1259, 2601))
+	section("Soal 2 · gabung, reverse, exclude")
+	n, err := GO2([]int{0, 1, 0}, 1000, 1010)
+	row("GO2([0 1 0], 1000, 1010)", fmt.Sprintf("%d, error: %v", n, err))
+	n, err = GO2([]int{0, 1, 0}, 1259, 2601)
+	row("GO2([0 1 0], 1259, 2601)", fmt.Sprintf("%d, error: %v", n, err))
 
-	fmt.Println("3:", GO3([]int{1, 2}, []int{1, 3}), GO3([]int{1, 2, 2}, []int{1, 2, 4}))
-	fmt.Println("4:", GO4(1223334))
-	fmt.Println("5:", GO5(1, 2, 3, 4), GO5(1, 2, 3, 4, 5))
+	section("Soal 3 · irisan descending")
+	row("GO3([1 2], [1 3])", GO3([]int{1, 2}, []int{1, 3}))
+	row("GO3([1 2 2], [1 2 4])", GO3([]int{1, 2, 2}, []int{1, 2, 4}))
+
+	section("Soal 4 · hitung digit")
+	row("GO4(1223334)", GO4(1223334))
+
+	section("Soal 5 · perkalian concurrent")
+	row("GO5(1, 2, 3, 4)", GO5(1, 2, 3, 4))
+	row("GO5(1, 2, 3, 4, 5)", GO5(1, 2, 3, 4, 5))
+	fmt.Println()
 }

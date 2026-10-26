@@ -15,13 +15,28 @@ go test -race ./... # menjalankan unit test (termasuk race detector untuk soal 5
 Output `go run .`:
 
 ```
-1: 0 -2 3
-0 not found
-62952 <nil>
-3: [1] [2 1]
-4: map[1:1 2:2 3:3 4:1]
-5: 14 39
+━━ Soal 1 · angka yang hilang ━━━━━━━━━━━━━━━━━━
+  GO1([-1 1])                          → 0
+  GO1([-1 -7 -5])                      → -2
+  GO1([1 2 1 6])                       → 3
+
+━━ Soal 2 · gabung, reverse, exclude ━━━━━━━━━━━
+  GO2([0 1 0], 1000, 1010)             → 0, error: not found
+  GO2([0 1 0], 1259, 2601)             → 62952, error: <nil>
+
+━━ Soal 3 · irisan descending ━━━━━━━━━━━━━━━━━━
+  GO3([1 2], [1 3])                    → [1]
+  GO3([1 2 2], [1 2 4])                → [2 1]
+
+━━ Soal 4 · hitung digit ━━━━━━━━━━━━━━━━━━━━━━━
+  GO4(1223334)                         → map[1:1 2:2 3:3 4:1]
+
+━━ Soal 5 · perkalian concurrent ━━━━━━━━━━━━━━━
+  GO5(1, 2, 3, 4)                      → 14
+  GO5(1, 2, 3, 4, 5)                   → 39
 ```
+
+![hasil run](treasury.png)
 
 Karena Go tidak mengizinkan beberapa fungsi bernama `GO` dalam satu package, fungsinya dinamai `GO1`..`GO5` sesuai nomor soal.
 
